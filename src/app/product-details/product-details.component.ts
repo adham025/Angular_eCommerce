@@ -26,9 +26,11 @@ export class ProductDetailsComponent {
   }
 
   ngOnInit() {
-    const productId = this.activatedRoute.snapshot.params['id'];
-    this._RequestService.getProductDetails(productId).subscribe((response:any) => this.selectedProduct = response);
+    this.activatedRoute.params.subscribe(params =>{const paramId = params['id']
+      this._RequestService.getProductDetails(paramId).subscribe((response:any) => this.selectedProduct = response);
+    })
 }
+
 addToCart(product: any) {
   this._AddToCartService.addToCart(product);
   }
