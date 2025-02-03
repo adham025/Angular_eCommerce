@@ -7,6 +7,7 @@ import { Product } from '../products'
 import { RatingPipe } from '../rating.pipe';
 import { DiscountPipe } from '../discount.pipe';
 import { RequestService } from '../service/request.service';
+import { AddToCartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -18,7 +19,7 @@ export class ProductDetailsComponent {
 
   @Input() id : string = ''
   selectedProduct !: Product;
-  constructor(private activatedRoute: ActivatedRoute, private _RequestService:RequestService) {}
+  constructor(private activatedRoute: ActivatedRoute, private _RequestService:RequestService, private _AddToCartService: AddToCartService) {}
 
   ngOnChanges(){
     console.log(this.id)
@@ -28,5 +29,8 @@ export class ProductDetailsComponent {
     const productId = this.activatedRoute.snapshot.params['id'];
     this._RequestService.getProductDetails(productId).subscribe((response:any) => this.selectedProduct = response);
 }
+addToCart(product: any) {
+  this._AddToCartService.addToCart(product);
+  }
 }
 
