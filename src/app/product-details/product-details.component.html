@@ -1,0 +1,49 @@
+<div *ngIf="selectedProduct; else noProductFound">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="selectedProduct.images"
+          class="img-fluid rounded-start"
+          alt="{{ selectedProduct.title }}"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedProduct.title }}</h5>
+          <p class="card-text text-decoration-line-through">
+            Price: {{ selectedProduct.price | currency : "EGP " }}
+          </p>
+          <p class="card-text">
+            After Discount:
+            {{
+              selectedProduct.price
+                | discount : selectedProduct.discountPercentage
+            }}
+          </p>
+          <p class="card-text">Category: {{ selectedProduct.category }}</p>
+          <p class="card-text">Stock: {{ selectedProduct.stock }}</p>
+          <p class="card-text">Rating: {{ selectedProduct.rating | rating }}</p>
+          <button
+            *ngIf="selectedProduct.stock === 0"
+            type="button"
+            class="btn btn-danger"
+          >
+            Out Of Stock
+          </button>
+          <button
+            *ngIf="selectedProduct.stock > 0"
+            type="button"
+            class="btn btn-success"
+          >
+            In Stock
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProductFound>
+  <p class="text-center mt-5">Product not found!</p>
+</ng-template>

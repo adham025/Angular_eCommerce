@@ -1,0 +1,49 @@
+<div class="row mt-5 w-100">
+  <div
+    class="col-sm-12 col-md-4 mb-4 d-flex justify-content-center"
+    *ngFor="let product of products"
+  >
+    <a class="text-decoration-none" style="color: inherit">
+      <div class="card" style="width: 18rem">
+        <img
+          [src]="product.images"
+          [routerLink]="['/product', product.id]"
+          class="card-img-top pointer"
+          alt="{{ product.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">
+            Price: {{ product.price | currency : "EGP " }}
+          </p>
+          <p class="card-text">Category: {{ product.category }}</p>
+          <p class="card-text">Stock: {{ product.stock }}</p>
+          <p class="card-text">Rating: {{ product.rating | rating }}</p>
+          <button
+            type="button"
+            class="btn btn-primary me-3"
+            (click)="addToCart(product)"
+          >
+            Add to Cart
+          </button>
+          <button
+            *ngIf="product.stock === 0"
+            type="button"
+            class="btn btn-danger"
+            disabled
+          >
+            Out Of Stock
+          </button>
+          <button
+            *ngIf="product.stock > 0"
+            type="button"
+            class="btn btn-success"
+            disabled
+          >
+            In Stock
+          </button>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<form #loginForm="ngForm" (ngSubmit)="handleSubmitForm(loginForm)">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$"
+      [(ngModel)]="formValues.email"
+      required
+      #email="ngModel"
+    />
+    @if (email.invalid && (email.touched || loginForm.submitted)) {
+    <div id="emailHelp" class="form-text text-danger">
+      @if(email.hasError('required')){
+      <span>Email is required</span>
+      }@else if(email.hasError('pattern')){
+      <span>Insert valid email like yourName&#64;example.com</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      [(ngModel)]="formValues.password"
+      required
+      minlength="6"
+      #password="ngModel"
+    />
+    @if (password.invalid && (password.touched || loginForm.submitted)) {
+    <div id="passwordHelp" class="form-text text-danger">
+      @if(password.hasError('required')){
+      <span>Password is required</span>
+      }@else if(password.hasError('minlength')){
+      <span>Min length is 8 characters</span>
+      }
+    </div>
+    }
+  </div>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+  <h6 class="text-center">
+    Don't have an account yet?
+    <a routerLink="/register" class="text-decoration-none">Create one</a>
+  </h6>
+</form>
