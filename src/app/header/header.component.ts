@@ -11,7 +11,6 @@ import { Product } from '../products';
 })
 export class HeaderComponent {
   cartProducts : Product[] = [];
-  counter = 0;
   constructor(private _AddToCartService : AddToCartService) {}
   ngOnInit() {
     this._AddToCartService.getCart().subscribe({

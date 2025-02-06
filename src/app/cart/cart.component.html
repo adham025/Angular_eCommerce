@@ -14,12 +14,7 @@
       <tbody>
         <tr *ngFor="let product of cartProducts">
           <td>
-            <img
-              [src]="product.images"
-              alt="Product Image"
-              class="img-thumbnail"
-              width="60"
-            />
+            <img [src]="product.images" alt="Product Image" width="60" />
           </td>
           <td>{{ product.title }}</td>
           <td>{{ product.price }} EGP</td>
@@ -38,7 +33,7 @@
               +
             </button>
           </td>
-          <td>{{ getTotal() }} EGP</td>
+          <td>{{ getOneProductTotal(product) }} EGP</td>
           <td>
             <button
               (click)="remove(product.id)"

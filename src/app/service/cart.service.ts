@@ -47,6 +47,7 @@ remove(id: number) {
   this.cartProducts = this.cartProducts.filter(p => p.id !== id);
 this.cart.next([...this.cartProducts]);
 }
+
 clearCart(){
   this.cartProducts = []
 this.cart.next([...this.cartProducts]);

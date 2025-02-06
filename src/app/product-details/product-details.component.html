@@ -11,6 +11,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{ selectedProduct.title }}</h5>
+          <p class="card-text">{{ selectedProduct.description }}</p>
           <p class="card-text text-decoration-line-through">
             Price: {{ selectedProduct.price | currency : "EGP " }}
           </p>

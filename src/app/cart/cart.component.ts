@@ -15,8 +15,6 @@ export class CartComponent {
 cartProducts : Product[] = [];
 
   constructor(private _AddToCartService : AddToCartService) {}
- products: Product[] = ProductsCard.products;
-  selectedProduct?: Product;
 
   ngOnChanges(){
     console.log()
@@ -46,8 +44,13 @@ this._AddToCartService.remove(id)
     this._AddToCartService.clearCart()
   }
 
-getTotal(): number {
-return Math.ceil(this.cartProducts.reduce((total, product) => total + (product.price * (product.quantity || 1)), 0));
+getOneProductTotal(product: Product): number {
+return parseFloat((product.price * (product.quantity || 1)).toFixed(2));
 }
+
+getTotal(): number {
+  return parseFloat(this.cartProducts.reduce((total, product) => total + (product.price * (product.quantity || 1)), 0).toFixed(2));
+}
+
 }
 
