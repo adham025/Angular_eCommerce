@@ -1,63 +1,21 @@
-<<<<<<< HEAD
-# Angular_eCommerce
-=======
-# Ecommerce
+### Registration Page – User registration form for creating an account.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+![a2](https://github.com/user-attachments/assets/ca5f3d04-3032-404c-afbf-618b437b4a9b)
 
-## Development server
+### Login Page – Secure authentication form for user login.
 
-To start a local development server, run:
+![a4](https://github.com/user-attachments/assets/ea9c8a8a-8a4f-4131-9b46-e4f585ac894a)
 
-```bash
-ng serve
-```
+### Product List Page – Displays a list of products fetched from the DummyJSON API.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+![a1](https://github.com/user-attachments/assets/7c6cbd9d-d41a-40a3-89f4-a0efac710379)
 
-## Code scaffolding
+### Product Details Page – Shows detailed information about a selected product.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+![a5](https://github.com/user-attachments/assets/188e73be-9bb9-44ec-a068-1485bfce33c2)
 
-```bash
-ng generate component component-name
-```
+### Cart Page – Shopping cart where users can view and manage selected products.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+![a3](https://github.com/user-attachments/assets/b7f0fdbf-9022-4604-9177-ad4f2992bb81)
 
-```bash
-ng generate --help
-```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
->>>>>>> 887c847 (initial commit)
